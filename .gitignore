@@ -1,0 +1,38 @@
+# 🔐 Segredos / Ambiente
+.env
+*.env
+.env.*.local
+*.secret
+*.secrets.*
+supabase/.env
+supabase/*.env
+supabase/**/.env
+
+# Evitar subir chaves exportadas ou dumps sensíveis
+*.pem
+*.key
+*.p12
+*.crt
+*.der
+*.jks
+*.keystore
+*.pfx
+
+# Pastas temporárias/estado local
+supabase/.branches/
+supabase/.temp/
+supabase/.tmp/
+supabase/.cache/
+supabase/.shadow/
+
+# Backups/dumps locais
+supabase/**/*.dump
+supabase/**/*.sql.bak
+supabase/**/backup*
+supabase/**/dump*
+
+# Node / Vite / Docker
+node_modules
+dist
+.vite
+docker

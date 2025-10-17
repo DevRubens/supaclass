@@ -1,0 +1,22 @@
+services:
+  gemini-cli:
+    build:
+      context: .
+      dockerfile: Dockerfile.gemini-cli
+      args:
+        GEMINI_CLI_CHANNEL: "latest"
+    image: gemini-cli:latest
+    container_name: gemini-cli
+    tty: true
+    stdin_open: true
+    working_dir: /home/app/work
+    volumes:
+      - ./:/home/app/work
+      - gemini_npm_cache:/home/app/.npm-global
+      - gemini_settings:/home/app/.gemini
+    environment:
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      TERM: xterm-256color
+volumes:
+  gemini_npm_cache:
+  gemini_settings:

@@ -1,0 +1,13 @@
+FROM node:20-alpine
+RUN apk add --no-cache bash git openssh-client ca-certificates tini su-exec && update-ca-certificates
+RUN addgroup -S app && adduser -S app -G app
+WORKDIR /home/app/work
+ENV NPM_CONFIG_PREFIX=/home/app/.npm-global
+ENV PATH="/home/app/.npm-global/bin:${PATH}"
+ARG GEMINI_CLI_CHANNEL=latest
+ENV GEMINI_CLI_CHANNEL=${GEMINI_CLI_CHANNEL}
+RUN npm install -g @google/gemini-cli@${GEMINI_CLI_CHANNEL}
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+ENTRYPOINT ["/sbin/tini","--","/usr/local/bin/docker-entrypoint.sh"]
+CMD ["gemini"]
