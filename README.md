@@ -190,7 +190,7 @@ npm run build
   * **Rubrica de avaliação** — ✔️ (`assessmentRubric`)
 * **Stack obrigatória:** Supabase (DB/Auth), Google AI Studio / Gemini, Front livre — ✔️
 * **Fluxo funcional:** formulário → prompt estruturado → chamada ao Gemini (JSON) → **salvar** e **exibir** plano → exportar **PDF** — ✔️
-* **Entrega:** código + instruções de setup, scripts SQL, decisões técnicas & desafios — contemplado neste guia — ✔️
+* **Entrega:** código + instruções de setup e scripts SQL ✔️
 
 ---
 
